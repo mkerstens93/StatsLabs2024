@@ -1,6 +1,6 @@
 ---
 title: "Lab 1 Kerstens and Rodne"
-output: pdf_document
+output: github_document
 date: "2024-01-12"
 ---
 
@@ -8,22 +8,16 @@ date: "2024-01-12"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+# Section 1: Analysis and Results
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+1.  Restate Fisher's two research questions in the order they appear in the study description.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+A. The questions that Fisher was asking in his study were if 
 
-```{r cars}
-summary(cars)
-```
+2.  What analysis did you use to answer Fisher's first research question? Be specific.
 
-## Including Plots
+3.  How did you check the assumptions for the analysis you defined in question 2?
 
-You can also embed plots, for example:
+4.  Write a short paragraph that clearly presents the results for the analysis from part 2. Any estimate used for inference should be accompanied by a confidence interval for that estimate, and any test statistic reported should be accompanied by appropriate information on degrees of freedom.
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+5.  Write a short paragraph to answer Fisher's second research question. Present any additional information you need to support your conclusion. You can include tables and graphics, with appropriate captions and clear labels, as necessary. Do not include any non-graphical output directly from R. Relevant output you want to report should be put into a table or written out within the text. Do not include any results that are not relevant or not referred to in your text. Part of your grade will be on neatness, clarity, and appropriateness of presentation; your grade will be reduced if you include superfluous output. See below for the grading rubric.
