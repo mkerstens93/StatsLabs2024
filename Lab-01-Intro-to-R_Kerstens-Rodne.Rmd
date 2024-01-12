@@ -73,6 +73,39 @@ Join "setosa" and "versi" into "setosa_versi". This contains all sepal and petal
 setosa_versi <- rbind(setosa, versi)
 ```
 
+Exploring the all flower measurements by iris species
+
+petal width
+```{r}
+qplot(
+x = iris,
+y = pwidth,
+data = setosa_versi)
+```
+
+sepal width
+```{r}
+qplot(
+x = iris,
+y = swidth,
+data = setosa_versi)
+```
+
+petal length
+```{r}
+qplot(
+x = iris,
+y = plength,
+data = setosa_versi)
+```
+
+sepal length
+```{r}
+qplot(
+x = iris,
+y = slength,
+data = setosa_versi)
+```
 
 
 # Section II: Results
