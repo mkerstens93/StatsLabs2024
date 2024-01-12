@@ -107,6 +107,22 @@ y = slength,
 data = setosa_versi)
 ```
 
+unequal variance assumed option
+```{r}
+(resp_uneq <- t.test(pwidth ~ iris, data = setosa_versi))
+(resp_uneq <- t.test(swidth ~ iris, data = setosa_versi))
+(resp_uneq <- t.test(plength ~ iris, data = setosa_versi))
+(resp_uneq <- t.test(slength ~ iris, data = setosa_versi))
+```
+
+equal variance assumed option
+```{r}
+(resp_eq <- t.test(pwidth ~ iris, var.equal = T, data = setosa_versi))
+(resp_eq <- t.test(swidth ~ iris, var.equal = T, data = setosa_versi))
+(resp_eq <- t.test(plength ~ iris, var.equal = T, data = setosa_versi))
+(resp_eq <- t.test(slength ~ iris, var.equal = T, data = setosa_versi))
+```
+
 
 # Section II: Results
 
