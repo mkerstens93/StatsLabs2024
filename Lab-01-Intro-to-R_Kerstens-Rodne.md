@@ -2,4 +2,54 @@ Lab 1 Kerstens and Rodne
 ================
 2024-01-12
 
-## Question 1
+## Assignment
+
+Sir Ronald Fisher measured the length and width of two flower parts,
+sepals and petals, from two species of iris growing one spring in a
+pasture on the Gaspé Peninsula. He wanted to determine how the means of
+the distributions of the measurements of these flower parts differed
+between the two species, although he did not define what size of
+difference would be practically meaningful. Since field botanists often
+use ranges of measures of plant characters to distinguish species, he
+was also particularly interested in whether these measures could be used
+to distinguish the two species in the field.
+
+The data for this assignment consist of sepal and petal lengths and
+widths (in mm) measured on 50 individuals each for two species of iris,
+*Iris versicolor* and *Iris setosa*. All measurements were taken at the
+widest point of the respective flower part. The data are in four
+separate files, `setosa_sepal.txt`, `setosa_petal.txt`,
+`versi_sepal.txt` and `versi_petal.txt`, representing measurements on
+sepals and petals from *I. setosa* and *I. versicolor*, respectively.
+Each data set contains three variables: `plant id`, `flower part width`
+(mm), and `flower part length` (mm).
+
+# Section 1: Analysis and Results
+
+1.  Restate Fisher’s two research questions in the order they appear in
+    the study description.
+
+A. The questions that Fisher was asking in his study were: 1) if the
+
+2.  What analysis did you use to answer Fisher’s first research
+    question? Be specific.
+
+3.  How did you check the assumptions for the analysis you defined in
+    question 2?
+
+4.  Write a short paragraph that clearly presents the results for the
+    analysis from part 2. Any estimate used for inference should be
+    accompanied by a confidence interval for that estimate, and any test
+    statistic reported should be accompanied by appropriate information
+    on degrees of freedom.
+
+5.  Write a short paragraph to answer Fisher’s second research question.
+    Present any additional information you need to support your
+    conclusion. You can include tables and graphics, with appropriate
+    captions and clear labels, as necessary. Do not include any
+    non-graphical output directly from R. Relevant output you want to
+    report should be put into a table or written out within the text. Do
+    not include any results that are not relevant or not referred to in
+    your text. Part of your grade will be on neatness, clarity, and
+    appropriateness of presentation; your grade will be reduced if you
+    include superfluous output. See below for the grading rubric.

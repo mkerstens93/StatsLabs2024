@@ -8,11 +8,17 @@ date: "2024-01-12"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Assignment
+
+Sir Ronald Fisher measured the length and width of two flower parts, sepals and petals, from two species of iris growing one spring in a pasture on the Gaspé Peninsula. He wanted to determine how the means of the distributions of the measurements of these flower parts differed between the two species, although he did not define what size of difference would be practically meaningful. Since field botanists often use ranges of measures of plant characters to distinguish species, he was also particularly interested in whether these measures could be used to distinguish the two species in the field.
+
+The data for this assignment consist of sepal and petal lengths and widths (in mm) measured on 50 individuals each for two species of iris, *Iris versicolor* and *Iris setosa*. All measurements were taken at the widest point of the respective flower part. The data are in four separate files, `setosa_sepal.txt`, `setosa_petal.txt`, `versi_sepal.txt` and `versi_petal.txt`, representing measurements on sepals and petals from *I. setosa* and *I. versicolor*, respectively. Each data set contains three variables: `plant id`, `flower part width` (mm), and `flower part length` (mm).
+
 # Section 1: Analysis and Results
 
 1.  Restate Fisher's two research questions in the order they appear in the study description.
 
-A. The questions that Fisher was asking in his study were if 
+A. The questions that Fisher was asking in his study were: 1) If the means of the distributions 
 
 2.  What analysis did you use to answer Fisher's first research question? Be specific.
 
