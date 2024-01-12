@@ -1,0 +1,147 @@
+---
+title: "Lab 1 Assignment"
+output: github_document
+date: "2024-01-11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+Here we bring in the tidyverse and the here package, and read about what read_table does:
+```{r}
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("here")
+library(here)
+?readr:: read_table()
+```
+
+Next let's bring in the data for the lab:
+```{r}
+temperature <- read_table(
+here("Data/temp.txt"))
+```
+And check the structure to make sure R has brought the data in in the correct format:
+```{r}
+str(temperature)
+```
+The DryWt column should be numeric, and we need to assign missing values as NA, since right now one of the values is a ".", which R denotes as a character value.
+```{r}
+temperature <- read_table(
+here("Data/temp.txt"),
+na = "."
+)
+
+str(temperature)
+```
+
+Much better!
+Now let's have a look at the dimensions of the dataset, where Dim tells you the rowsxcolumns
+```{r}
+dim(temperature)
+nrow(temperature)
+ncol(temperature)
+```
+
+Now let's bring in the respiration datasets:
+```{r}
+(
+resp_spring <- read_table(
+here("Data/spring_87_resp.txt")
+)
+)
+(
+resp_fall <- read_table(
+here("Data/fall_87_resp.txt")
+)
+)
+```
+## Stacking Two Datasets:
+Next we want to stack the datasets using the rbind() function. Before we do this let's add a new variable so that we can keep track of which rows of data came from which original dataset. We will call these new variable "season" and the values will be "spring" or "fall". We also need to make sure that the column names all match using the all.equal() function.
+```{r}
+resp_spring <- resp_spring %>%
+mutate(.,
+season = "spring"
+)
+resp_fall <- resp_fall %>%
+mutate(.,
+season = "fall"
+)
+all.equal(
+names(resp_spring),
+names(resp_fall)
+)
+resp_all <- rbind(
+resp_fall, resp_spring
+)
+```
+##Merging two datasets:
+They don't have the same number of rows, so instead of checking them manually in excel like how I normally do like a dumby let's do it the more efficient way in R!
+```{r}
+anti_join(resp_all, temperature, by = "Sample")
+```
+Ok, now let's do that inner join using "Sample" as the common link:
+```{r}
+resp_temp <- inner_join(
+x = resp_all,
+y = temperature,
+by = "Sample"
+)
+```
+However, this dropped one of that line of data that was not in both. To avoid this, let's do a left join and have the "x" dataset be the one that has all 60 rows of data, this should fill in NAs for the missing data.
+```{r}
+resp_temp <- left_join(
+x = resp_all,
+y = temperature,
+by = "Sample"
+)
+nrow(resp_temp)
+```
+Let's look at what it did to row 29 that had the missing values:
+```{r}
+resp_temp[which(resp_temp$Sample == 21), ]
+```
+To add a new column using mutate and using ifelse:
+```{r}
+resp_temp <- resp_temp %>%
+mutate(.,
+tempf = 32 + (9 / 5) * Temp
+)
+resp_temp <- resp_temp %>%
+mutate(.,
+tempgroup = ifelse(Temp < 8, "Cold", "Hot")
+)
+```
+Using na.rm removes NA values before executing a function. Let's use this to calculate the mean temperature:
+```{r}
+mean(resp_temp$DryWt, na.rm = T)
+```
+We can also remove entire rows that contain a NA:
+```{r}
+resp_temp2 <- drop_na(resp_temp)
+nrow(resp_temp2)
+```
+
