@@ -18,9 +18,11 @@ The data for this assignment consist of sepal and petal lengths and widths (in m
 
 1.  Restate Fisher's two research questions in the order they appear in the study description.
 
-A. The questions that Fisher was asking in his study were: 1) If the means of the distributions 
+A. The questions that Fisher was asking in his study were: 1) If the means of the distributions for the two iris species sepals and petals were different? 2) If the measurements of the sepals and petals could be used to distinguish the two species apart in the field.
 
 2.  What analysis did you use to answer Fisher's first research question? Be specific.
+
+A. The first analysis to be used will help answer the first question. We will use a t-test 
 
 3.  How did you check the assumptions for the analysis you defined in question 2?
 
