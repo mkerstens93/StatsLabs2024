@@ -18,10 +18,43 @@ The data for this assignment consist of sepal and petal lengths and widths (in m
 
 Reading in the data
 
+```{r, echo=FALSE}
+library(tidyverse)
+library(here)
+```
 ```{r}
-
+setosa_sepal <- read_table(here("Data/setosa_sepal.txt"))
+setosa_petal <- read_table(here("Data/setosa_petal.txt"))
+versi_sepal <- read_table(here("Data/versi_sepal.txt"))
+versi_petal <- read_table(here("Data/versi_petal.txt"))
 ```
 
+Rename columns
+
+```{r}
+colnames(setosa_petal) <- c("plantid", "pwidth", "plength")
+colnames(setosa_sepal) <- c("plantid", "swidth", "slength")
+colnames(versi_petal) <- c("plantid", "pwidth", "plength")
+colnames(versi_sepal) <- c("plantid", "swidth", "slength")
+```
+
+
+Combining the petal and sepal measurements for each species into 2 datasets
+
+```{r}
+setosa <- inner_join(
+x = setosa_petal,
+y = setosa_sepal,
+by = "plantid"
+)
+versi <- inner_join(
+x = versi_petal,
+y = versi_sepal,
+by = "plantid"
+)
+```
+
+Naming a 
 
 # Section II: Results
 
