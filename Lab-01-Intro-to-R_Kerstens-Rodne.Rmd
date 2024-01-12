@@ -54,7 +54,26 @@ by = "plantid"
 )
 ```
 
-Naming a 
+Naming a separate column in setosa and versi dataframe that distinguishes the two. This must be done before joining into the single dataframe (setosa_versi).
+
+```{r}
+setosa <- setosa %>%
+mutate(.,
+iris = "setosa"
+)
+versi <- versi %>%
+mutate(.,
+iris = "versi"
+)
+```
+
+Join "setosa" and "versi" into "setosa_versi". This contains all sepal and petal measurements for all flowers.
+
+```{r}
+setosa_versi <- rbind(setosa, versi)
+```
+
+
 
 # Section II: Results
 

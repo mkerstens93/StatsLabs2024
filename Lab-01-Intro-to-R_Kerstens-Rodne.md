@@ -24,24 +24,165 @@ sepals and petals from *I. setosa* and *I. versicolor*, respectively.
 Each data set contains three variables: `plant id`, `flower part width`
 (mm), and `flower part length` (mm).
 
-# Section 1: Analysis and Results
+# Section I: Analysis
+
+Reading in the data
+
+    ## Warning: package 'tidyverse' was built under R version 4.3.2
+
+    ## Warning: package 'dplyr' was built under R version 4.3.2
+
+    ## Warning: package 'stringr' was built under R version 4.3.2
+
+    ## Warning: package 'forcats' was built under R version 4.3.2
+
+    ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+    ## ✔ dplyr     1.1.4     ✔ readr     2.1.4
+    ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+    ## ✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+    ## ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+    ## ✔ purrr     1.0.2     
+    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ✖ dplyr::filter() masks stats::filter()
+    ## ✖ dplyr::lag()    masks stats::lag()
+    ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+    ## Warning: package 'here' was built under R version 4.3.2
+
+    ## here() starts at C:/Users/skrod/Documents/GitHub/StatsLabs2024
+
+``` r
+setosa_sepal <- read_table(here("Data/setosa_sepal.txt"))
+```
+
+    ## 
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## cols(
+    ##   `"plantid"` = col_double(),
+    ##   `"swidth"` = col_double(),
+    ##   `"slength"` = col_double()
+    ## )
+
+``` r
+setosa_petal <- read_table(here("Data/setosa_petal.txt"))
+```
+
+    ## 
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## cols(
+    ##   `"plantid"` = col_double(),
+    ##   `"pwidth"` = col_double(),
+    ##   `"plength"` = col_double()
+    ## )
+
+``` r
+versi_sepal <- read_table(here("Data/versi_sepal.txt"))
+```
+
+    ## 
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## cols(
+    ##   `"plantid"` = col_double(),
+    ##   `"swidth"` = col_double(),
+    ##   `"slength"` = col_double()
+    ## )
+
+``` r
+versi_petal <- read_table(here("Data/versi_petal.txt"))
+```
+
+    ## 
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## cols(
+    ##   `"plantid"` = col_double(),
+    ##   `"pwidth"` = col_double(),
+    ##   `"plength"` = col_double()
+    ## )
+
+Rename columns
+
+``` r
+colnames(setosa_petal) <- c("plantid", "pwidth", "plength")
+colnames(setosa_sepal) <- c("plantid", "swidth", "slength")
+colnames(versi_petal) <- c("plantid", "pwidth", "plength")
+colnames(versi_sepal) <- c("plantid", "swidth", "slength")
+```
+
+Combining the petal and sepal measurements for each species into 2
+datasets
+
+``` r
+setosa <- inner_join(
+x = setosa_petal,
+y = setosa_sepal,
+by = "plantid"
+)
+versi <- inner_join(
+x = versi_petal,
+y = versi_sepal,
+by = "plantid"
+)
+```
+
+Naming a separate column in setosa and versi dataframe that
+distinguishes the two. This must be done before joining into the single
+dataframe (setosa_versi).
+
+``` r
+setosa <- setosa %>%
+mutate(.,
+iris = "setosa"
+)
+versi <- versi %>%
+mutate(.,
+iris = "versi"
+)
+```
+
+Join “setosa” and “versi” into “setosa_versi”. This contains all sepal
+and petal measurements for all flowers.
+
+``` r
+setosa_versi <- rbind(setosa, versi)
+```
+
+# Section II: Results
 
 1.  Restate Fisher’s two research questions in the order they appear in
     the study description.
 
-A. The questions that Fisher was asking in his study were: 1) if the
+A. The questions that Fisher was asking in his study were: 1) If the
+means of the distributions for the two iris species sepals and petals
+were different? 2) If the measurements of the sepals and petals could be
+used to distinguish the two species apart in the field.
 
 2.  What analysis did you use to answer Fisher’s first research
     question? Be specific.
 
+A. The first analysis to be used will help answer the first question. We
+will use a t-test to quantify whether there is a significant difference
+between the measurements of sepals and petals for the two species.
+
 3.  How did you check the assumptions for the analysis you defined in
     question 2?
+
+<!-- -->
+
+1.  
+
+<!-- -->
 
 4.  Write a short paragraph that clearly presents the results for the
     analysis from part 2. Any estimate used for inference should be
     accompanied by a confidence interval for that estimate, and any test
     statistic reported should be accompanied by appropriate information
     on degrees of freedom.
+
+<!-- -->
+
+1.  
+
+<!-- -->
 
 5.  Write a short paragraph to answer Fisher’s second research question.
     Present any additional information you need to support your
@@ -53,3 +194,13 @@ A. The questions that Fisher was asking in his study were: 1) if the
     your text. Part of your grade will be on neatness, clarity, and
     appropriateness of presentation; your grade will be reduced if you
     include superfluous output. See below for the grading rubric.
+
+<!-- -->
+
+1.  
+
+### Section III: Short answer (4 points)
+
+Describe and justify the scope of inference based on the description of
+Fisher’s data. If you choose to extend the scope of inference, be sure
+to justify this choice. If you do not, what gave you pause?
