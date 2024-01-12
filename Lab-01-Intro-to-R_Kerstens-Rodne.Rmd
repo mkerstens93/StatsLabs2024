@@ -14,7 +14,16 @@ Sir Ronald Fisher measured the length and width of two flower parts, sepals and 
 
 The data for this assignment consist of sepal and petal lengths and widths (in mm) measured on 50 individuals each for two species of iris, *Iris versicolor* and *Iris setosa*. All measurements were taken at the widest point of the respective flower part. The data are in four separate files, `setosa_sepal.txt`, `setosa_petal.txt`, `versi_sepal.txt` and `versi_petal.txt`, representing measurements on sepals and petals from *I. setosa* and *I. versicolor*, respectively. Each data set contains three variables: `plant id`, `flower part width` (mm), and `flower part length` (mm).
 
-# Section 1: Analysis and Results
+# Section I: Analysis
+
+Reading in the data
+
+```{r}
+
+```
+
+
+# Section II: Results
 
 1.  Restate Fisher's two research questions in the order they appear in the study description.
 
@@ -22,10 +31,20 @@ A. The questions that Fisher was asking in his study were: 1) If the means of th
 
 2.  What analysis did you use to answer Fisher's first research question? Be specific.
 
-A. The first analysis to be used will help answer the first question. We will use a t-test 
+A. The first analysis to be used will help answer the first question. We will use a t-test to quantify whether there is a significant difference between the measurements of sepals and petals for the two species.
 
 3.  How did you check the assumptions for the analysis you defined in question 2?
 
+A. 
+
 4.  Write a short paragraph that clearly presents the results for the analysis from part 2. Any estimate used for inference should be accompanied by a confidence interval for that estimate, and any test statistic reported should be accompanied by appropriate information on degrees of freedom.
 
+A. 
+
 5.  Write a short paragraph to answer Fisher's second research question. Present any additional information you need to support your conclusion. You can include tables and graphics, with appropriate captions and clear labels, as necessary. Do not include any non-graphical output directly from R. Relevant output you want to report should be put into a table or written out within the text. Do not include any results that are not relevant or not referred to in your text. Part of your grade will be on neatness, clarity, and appropriateness of presentation; your grade will be reduced if you include superfluous output. See below for the grading rubric.
+
+A. 
+
+### Section III: Short answer (4 points)
+
+Describe and justify the scope of inference based on the description of Fisher's data. If you choose to extend the scope of inference, be sure to justify this choice. If you do not, what gave you pause?
