@@ -73,6 +73,59 @@ Join "setosa" and "versi" into "setosa_versi". This contains all sepal and petal
 setosa_versi <- rbind(setosa, versi)
 ```
 
+Running a summary on the setosa_versi
+
+```{r}
+summary(setosa_versi)
+summary(setosa)
+summary(versi)
+```
+
+Histogram
+```{r}
+qplot(
+x = swidth,
+fill = iris,
+data = setosa_versi,
+geom = "density",
+alpha = I(0.5) # This syntax removes alpha from the legend
+)
+```
+swidth = unequal
+
+```{r}
+qplot(
+x = pwidth,
+fill = iris,
+data = setosa_versi,
+geom = "density",
+alpha = I(0.5) # This syntax removes alpha from the legend
+)
+```
+pwidth = equal
+
+```{r}
+qplot(
+x = plength,
+fill = iris,
+data = setosa_versi,
+geom = "density",
+alpha = I(0.5) # This syntax removes alpha from the legend
+)
+```
+plength = unequal
+
+```{r}
+qplot(
+x = slength,
+fill = iris,
+data = setosa_versi,
+geom = "density",
+alpha = I(0.5) # This syntax removes alpha from the legend
+)
+```
+slength = equal
+
 Exploring the all flower measurements by iris species
 
 petal width
@@ -107,20 +160,18 @@ y = slength,
 data = setosa_versi)
 ```
 
+
+
 unequal variance assumed option
 ```{r}
-(resp_uneq <- t.test(pwidth ~ iris, data = setosa_versi))
-(resp_uneq <- t.test(swidth ~ iris, data = setosa_versi))
-(resp_uneq <- t.test(plength ~ iris, data = setosa_versi))
-(resp_uneq <- t.test(slength ~ iris, data = setosa_versi))
+(resp_uneq_swidth <- t.test(swidth ~ iris, data = setosa_versi))
+(resp_uneq_plength <- t.test(plength ~ iris, data = setosa_versi))
 ```
 
 equal variance assumed option
 ```{r}
-(resp_eq <- t.test(pwidth ~ iris, var.equal = T, data = setosa_versi))
-(resp_eq <- t.test(swidth ~ iris, var.equal = T, data = setosa_versi))
-(resp_eq <- t.test(plength ~ iris, var.equal = T, data = setosa_versi))
-(resp_eq <- t.test(slength ~ iris, var.equal = T, data = setosa_versi))
+(resp_eq_pwidth <- t.test(pwidth ~ iris, var.equal = T, data = setosa_versi))
+(resp_eq_slength <- t.test(slength ~ iris, var.equal = T, data = setosa_versi))
 ```
 
 
@@ -128,15 +179,15 @@ equal variance assumed option
 
 1.  Restate Fisher's two research questions in the order they appear in the study description.
 
-A. The questions that Fisher was asking in his study were: 1) If the means of the distributions for the two iris species sepals and petals were different? 2) If the measurements of the sepals and petals could be used to distinguish the two species apart in the field.
+A. The questions that Fisher was asking in his study were: 1) If the means of the distributions for the two iris species sepals and petals were different? 2) If the measurements of the sepals and petals could be used to distinguish the two species apart in the field?
 
 2.  What analysis did you use to answer Fisher's first research question? Be specific.
 
-A. The first analysis to be used will help answer the first question. We will use a t-test to quantify whether there is a significant difference between the measurements of sepals and petals for the two species.
+A. We will first check the assumptions to see if we would be using equal or unequal variance t-tests for finding significant difference between the two species and their respective petal and sepal sizes. 
 
 3.  How did you check the assumptions for the analysis you defined in question 2?
 
-A. 
+A. We made density histogram plots and visually checked for differences of variance within the measurements for each flower part measurement for each species.
 
 4.  Write a short paragraph that clearly presents the results for the analysis from part 2. Any estimate used for inference should be accompanied by a confidence interval for that estimate, and any test statistic reported should be accompanied by appropriate information on degrees of freedom.
 

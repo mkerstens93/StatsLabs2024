@@ -146,6 +146,189 @@ and petal measurements for all flowers.
 setosa_versi <- rbind(setosa, versi)
 ```
 
+Exploring the all flower measurements by iris species
+
+petal width
+
+``` r
+qplot(
+x = iris,
+y = pwidth,
+data = setosa_versi)
+```
+
+    ## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
+    ## This warning is displayed once every 8 hours.
+    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+    ## generated.
+
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+sepal width
+
+``` r
+qplot(
+x = iris,
+y = swidth,
+data = setosa_versi)
+```
+
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+petal length
+
+``` r
+qplot(
+x = iris,
+y = plength,
+data = setosa_versi)
+```
+
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+sepal length
+
+``` r
+qplot(
+x = iris,
+y = slength,
+data = setosa_versi)
+```
+
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+
+unequal variance assumed option
+
+``` r
+(resp_uneq <- t.test(pwidth ~ iris, data = setosa_versi))
+```
+
+    ## 
+    ##  Welch Two Sample t-test
+    ## 
+    ## data:  pwidth by iris
+    ## t = 34.325, df = 97.995, p-value < 2.2e-16
+    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
+    ## 95 percent confidence interval:
+    ##   9.987177 11.212823
+    ## sample estimates:
+    ## mean in group setosa  mean in group versi 
+    ##                15.86                 5.26
+
+``` r
+(resp_uneq <- t.test(swidth ~ iris, data = setosa_versi))
+```
+
+    ## 
+    ##  Welch Two Sample t-test
+    ## 
+    ## data:  swidth by iris
+    ## t = -7.2293, df = 65.689, p-value = 6.473e-10
+    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -8.831311 -5.008689
+    ## sample estimates:
+    ## mean in group setosa  mean in group versi 
+    ##                28.34                35.26
+
+``` r
+(resp_uneq <- t.test(plength ~ iris, data = setosa_versi))
+```
+
+    ## 
+    ##  Welch Two Sample t-test
+    ## 
+    ## data:  plength by iris
+    ## t = 37.657, df = 64.967, p-value < 2.2e-16
+    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
+    ## 95 percent confidence interval:
+    ##  26.07939 29.00061
+    ## sample estimates:
+    ## mean in group setosa  mean in group versi 
+    ##                44.54                17.00
+
+``` r
+(resp_uneq <- t.test(slength ~ iris, data = setosa_versi))
+```
+
+    ## 
+    ##  Welch Two Sample t-test
+    ## 
+    ## data:  slength by iris
+    ## t = 8.5731, df = 97.463, p-value = 1.552e-13
+    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
+    ## 95 percent confidence interval:
+    ##  5.563988 8.916012
+    ## sample estimates:
+    ## mean in group setosa  mean in group versi 
+    ##                59.30                52.06
+
+equal variance assumed option
+
+``` r
+(resp_eq <- t.test(pwidth ~ iris, var.equal = T, data = setosa_versi))
+```
+
+    ## 
+    ##  Two Sample t-test
+    ## 
+    ## data:  pwidth by iris
+    ## t = 34.325, df = 98, p-value < 2.2e-16
+    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
+    ## 95 percent confidence interval:
+    ##   9.987178 11.212822
+    ## sample estimates:
+    ## mean in group setosa  mean in group versi 
+    ##                15.86                 5.26
+
+``` r
+(resp_eq <- t.test(swidth ~ iris, var.equal = T, data = setosa_versi))
+```
+
+    ## 
+    ##  Two Sample t-test
+    ## 
+    ## data:  swidth by iris
+    ## t = -7.2293, df = 98, p-value = 1.074e-10
+    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -8.819563 -5.020437
+    ## sample estimates:
+    ## mean in group setosa  mean in group versi 
+    ##                28.34                35.26
+
+``` r
+(resp_eq <- t.test(plength ~ iris, var.equal = T, data = setosa_versi))
+```
+
+    ## 
+    ##  Two Sample t-test
+    ## 
+    ## data:  plength by iris
+    ## t = 37.657, df = 98, p-value < 2.2e-16
+    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
+    ## 95 percent confidence interval:
+    ##  26.08867 28.99133
+    ## sample estimates:
+    ## mean in group setosa  mean in group versi 
+    ##                44.54                17.00
+
+``` r
+(resp_eq <- t.test(slength ~ iris, var.equal = T, data = setosa_versi))
+```
+
+    ## 
+    ##  Two Sample t-test
+    ## 
+    ## data:  slength by iris
+    ## t = 8.5731, df = 98, p-value = 1.497e-13
+    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
+    ## 95 percent confidence interval:
+    ##  5.564104 8.915896
+    ## sample estimates:
+    ## mean in group setosa  mean in group versi 
+    ##                59.30                52.06
+
 # Section II: Results
 
 1.  Restate Fisher’s two research questions in the order they appear in
