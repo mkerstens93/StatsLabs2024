@@ -146,6 +146,124 @@ and petal measurements for all flowers.
 setosa_versi <- rbind(setosa, versi)
 ```
 
+Running a summary on the setosa_versi
+
+``` r
+summary(setosa_versi)
+```
+
+    ##     plantid           pwidth         plength          swidth     
+    ##  Min.   :  1.00   Min.   : 3.00   Min.   :13.00   Min.   :18.00  
+    ##  1st Qu.: 39.75   1st Qu.: 5.00   1st Qu.:17.00   1st Qu.:27.75  
+    ##  Median : 79.50   Median :11.00   Median :28.50   Median :30.50  
+    ##  Mean   : 76.00   Mean   :10.56   Mean   :30.77   Mean   :31.80  
+    ##  3rd Qu.:110.25   3rd Qu.:16.00   3rd Qu.:44.00   3rd Qu.:36.00  
+    ##  Max.   :150.00   Max.   :18.00   Max.   :56.00   Max.   :46.00  
+    ##     slength          iris          
+    ##  Min.   :40.00   Length:100        
+    ##  1st Qu.:52.00   Class :character  
+    ##  Median :55.00   Mode  :character  
+    ##  Mean   :55.68                     
+    ##  3rd Qu.:60.00                     
+    ##  Max.   :68.00
+
+``` r
+summary(setosa)
+```
+
+    ##     plantid           pwidth         plength          swidth     
+    ##  Min.   :  7.00   Min.   :13.00   Min.   :36.00   Min.   :23.00  
+    ##  1st Qu.: 40.25   1st Qu.:15.00   1st Qu.:41.00   1st Qu.:27.00  
+    ##  Median : 77.50   Median :16.00   Median :44.00   Median :28.00  
+    ##  Mean   : 75.08   Mean   :15.86   Mean   :44.54   Mean   :28.34  
+    ##  3rd Qu.:103.75   3rd Qu.:17.00   3rd Qu.:47.00   3rd Qu.:30.00  
+    ##  Max.   :147.00   Max.   :18.00   Max.   :56.00   Max.   :35.00  
+    ##     slength         iris          
+    ##  Min.   :49.0   Length:50         
+    ##  1st Qu.:57.0   Class :character  
+    ##  Median :60.0   Mode  :character  
+    ##  Mean   :59.3                     
+    ##  3rd Qu.:62.0                     
+    ##  Max.   :68.0
+
+``` r
+summary(versi)
+```
+
+    ##     plantid           pwidth        plength          swidth     
+    ##  Min.   :  1.00   Min.   :3.00   Min.   :13.00   Min.   :18.00  
+    ##  1st Qu.: 36.25   1st Qu.:4.00   1st Qu.:15.25   1st Qu.:31.00  
+    ##  Median : 80.50   Median :5.00   Median :17.00   Median :36.00  
+    ##  Mean   : 76.92   Mean   :5.26   Mean   :17.00   Mean   :35.26  
+    ##  3rd Qu.:113.50   3rd Qu.:6.00   3rd Qu.:19.00   3rd Qu.:40.00  
+    ##  Max.   :150.00   Max.   :9.00   Max.   :21.00   Max.   :46.00  
+    ##     slength          iris          
+    ##  Min.   :40.00   Length:50         
+    ##  1st Qu.:49.00   Class :character  
+    ##  Median :52.00   Mode  :character  
+    ##  Mean   :52.06                     
+    ##  3rd Qu.:54.00                     
+    ##  Max.   :61.00
+
+Histogram
+
+``` r
+qplot(
+x = swidth,
+fill = iris,
+data = setosa_versi,
+geom = "density",
+alpha = I(0.5) # This syntax removes alpha from the legend
+)
+```
+
+    ## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
+    ## This warning is displayed once every 8 hours.
+    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+    ## generated.
+
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+swidth = unequal
+
+``` r
+qplot(
+x = pwidth,
+fill = iris,
+data = setosa_versi,
+geom = "density",
+alpha = I(0.5) # This syntax removes alpha from the legend
+)
+```
+
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+pwidth = equal
+
+``` r
+qplot(
+x = plength,
+fill = iris,
+data = setosa_versi,
+geom = "density",
+alpha = I(0.5) # This syntax removes alpha from the legend
+)
+```
+
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+plength = unequal
+
+``` r
+qplot(
+x = slength,
+fill = iris,
+data = setosa_versi,
+geom = "density",
+alpha = I(0.5) # This syntax removes alpha from the legend
+)
+```
+
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+slength = equal
+
 Exploring the all flower measurements by iris species
 
 petal width
@@ -157,12 +275,7 @@ y = pwidth,
 data = setosa_versi)
 ```
 
-    ## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
-    ## This warning is displayed once every 8 hours.
-    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-    ## generated.
-
-![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 sepal width
 
@@ -173,7 +286,7 @@ y = swidth,
 data = setosa_versi)
 ```
 
-![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 petal length
 
@@ -184,7 +297,7 @@ y = plength,
 data = setosa_versi)
 ```
 
-![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 sepal length
 
@@ -195,28 +308,12 @@ y = slength,
 data = setosa_versi)
 ```
 
-![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](Lab-01-Intro-to-R_Kerstens-Rodne_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 unequal variance assumed option
 
 ``` r
-(resp_uneq <- t.test(pwidth ~ iris, data = setosa_versi))
-```
-
-    ## 
-    ##  Welch Two Sample t-test
-    ## 
-    ## data:  pwidth by iris
-    ## t = 34.325, df = 97.995, p-value < 2.2e-16
-    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
-    ## 95 percent confidence interval:
-    ##   9.987177 11.212823
-    ## sample estimates:
-    ## mean in group setosa  mean in group versi 
-    ##                15.86                 5.26
-
-``` r
-(resp_uneq <- t.test(swidth ~ iris, data = setosa_versi))
+(resp_uneq_swidth <- t.test(swidth ~ iris, data = setosa_versi))
 ```
 
     ## 
@@ -232,7 +329,7 @@ unequal variance assumed option
     ##                28.34                35.26
 
 ``` r
-(resp_uneq <- t.test(plength ~ iris, data = setosa_versi))
+(resp_uneq_plength <- t.test(plength ~ iris, data = setosa_versi))
 ```
 
     ## 
@@ -247,26 +344,10 @@ unequal variance assumed option
     ## mean in group setosa  mean in group versi 
     ##                44.54                17.00
 
-``` r
-(resp_uneq <- t.test(slength ~ iris, data = setosa_versi))
-```
-
-    ## 
-    ##  Welch Two Sample t-test
-    ## 
-    ## data:  slength by iris
-    ## t = 8.5731, df = 97.463, p-value = 1.552e-13
-    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
-    ## 95 percent confidence interval:
-    ##  5.563988 8.916012
-    ## sample estimates:
-    ## mean in group setosa  mean in group versi 
-    ##                59.30                52.06
-
 equal variance assumed option
 
 ``` r
-(resp_eq <- t.test(pwidth ~ iris, var.equal = T, data = setosa_versi))
+(resp_eq_pwidth <- t.test(pwidth ~ iris, var.equal = T, data = setosa_versi))
 ```
 
     ## 
@@ -282,39 +363,7 @@ equal variance assumed option
     ##                15.86                 5.26
 
 ``` r
-(resp_eq <- t.test(swidth ~ iris, var.equal = T, data = setosa_versi))
-```
-
-    ## 
-    ##  Two Sample t-test
-    ## 
-    ## data:  swidth by iris
-    ## t = -7.2293, df = 98, p-value = 1.074e-10
-    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -8.819563 -5.020437
-    ## sample estimates:
-    ## mean in group setosa  mean in group versi 
-    ##                28.34                35.26
-
-``` r
-(resp_eq <- t.test(plength ~ iris, var.equal = T, data = setosa_versi))
-```
-
-    ## 
-    ##  Two Sample t-test
-    ## 
-    ## data:  plength by iris
-    ## t = 37.657, df = 98, p-value < 2.2e-16
-    ## alternative hypothesis: true difference in means between group setosa and group versi is not equal to 0
-    ## 95 percent confidence interval:
-    ##  26.08867 28.99133
-    ## sample estimates:
-    ## mean in group setosa  mean in group versi 
-    ##                44.54                17.00
-
-``` r
-(resp_eq <- t.test(slength ~ iris, var.equal = T, data = setosa_versi))
+(resp_eq_slength <- t.test(slength ~ iris, var.equal = T, data = setosa_versi))
 ```
 
     ## 
@@ -337,23 +386,21 @@ equal variance assumed option
 A. The questions that Fisher was asking in his study were: 1) If the
 means of the distributions for the two iris species sepals and petals
 were different? 2) If the measurements of the sepals and petals could be
-used to distinguish the two species apart in the field.
+used to distinguish the two species apart in the field?
 
 2.  What analysis did you use to answer Fisher’s first research
     question? Be specific.
 
-A. The first analysis to be used will help answer the first question. We
-will use a t-test to quantify whether there is a significant difference
-between the measurements of sepals and petals for the two species.
+A. We will first check the assumptions to see if we would be using equal
+or unequal variance t-tests for finding significant difference between
+the two species and their respective petal and sepal sizes.
 
 3.  How did you check the assumptions for the analysis you defined in
     question 2?
 
-<!-- -->
-
-1.  
-
-<!-- -->
+A. We made density histogram plots and visually checked for differences
+of variance within the measurements for each flower part measurement for
+each species.
 
 4.  Write a short paragraph that clearly presents the results for the
     analysis from part 2. Any estimate used for inference should be
